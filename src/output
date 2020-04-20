@@ -1,0 +1,148 @@
+[
+    {
+        "MonitoredVehicleJourney": {
+            "Bearing": 144.96588,
+            "BlockRef": "MTABC_LGPCV-LG_A0-Sunday-10_5372650",
+            "DestinationName": "LI CITY QUEENS PLZ via DITMARS BL via 21 ST",
+            "DestinationRef": "MTA_982098",
+            "DirectionRef": "1",
+            "FramedVehicleJourneyRef": {
+                "DataFrameRef": "2020-04-19",
+                "DatedVehicleJourneyRef": "MTABC_27938393-LGPCV-LG_A0-Sunday-10"
+            },
+            "JourneyPatternRef": "MTA_Q690131",
+            "LineRef": "MTABC_Q69",
+            "Monitored": true,
+            "MonitoredCall": {
+                "ExpectedArrivalTime": "2020-04-19T20:17:39.052-04:00",
+                "ExpectedDepartureTime": "2020-04-19T20:17:39.052-04:00",
+                "Extensions": {
+                    "Distances": {
+                        "CallDistanceAlongRoute": 5113.84,
+                        "DistanceFromCall": 2135.65,
+                        "PresentableDistance": "1.3 miles away",
+                        "StopsFromCall": 10
+                    }
+                },
+                "StopPointName": "21 ST/31 AV",
+                "StopPointRef": "MTA_552954",
+                "VisitNumber": 1
+            },
+            "OnwardCalls": {},
+            "OperatorRef": "MTABC",
+            "OriginRef": "MTA_550624",
+            "ProgressRate": "normalProgress",
+            "PublishedLineName": "Q69",
+            "SituationRef": [],
+            "VehicleLocation": {
+                "Latitude": 40.778744,
+                "Longitude": -73.914356
+            },
+            "VehicleRef": "MTABC_3731"
+        },
+        "RecordedAtTime": "2020-04-19T20:09:30.000-04:00"
+    },
+    {
+        "MonitoredVehicleJourney": {
+            "Bearing": 290.48215,
+            "BlockRef": "MTABC_LGPCV-LG_A0-Sunday-10_5372651",
+            "DestinationName": "LI CITY QUEENS PLZ via DITMARS BL via 21 ST",
+            "DestinationRef": "MTA_982098",
+            "DirectionRef": "1",
+            "FramedVehicleJourneyRef": {
+                "DataFrameRef": "2020-04-19",
+                "DatedVehicleJourneyRef": "MTABC_27938320-LGPCV-LG_A0-Sunday-10"
+            },
+            "JourneyPatternRef": "MTA_Q690131",
+            "LineRef": "MTABC_Q69",
+            "Monitored": true,
+            "MonitoredCall": {
+                "ExpectedArrivalTime": "2020-04-19T21:05:34.322-04:00",
+                "ExpectedDepartureTime": "2020-04-19T21:05:34.322-04:00",
+                "Extensions": {
+                    "Distances": {
+                        "CallDistanceAlongRoute": 5113.84,
+                        "DistanceFromCall": 5270.6,
+                        "PresentableDistance": "3.3 miles away",
+                        "StopsFromCall": 28
+                    }
+                },
+                "StopPointName": "21 ST/31 AV",
+                "StopPointRef": "MTA_552954",
+                "VisitNumber": 1
+            },
+            "OnwardCalls": {},
+            "OperatorRef": "MTABC",
+            "OriginAimedDepartureTime": "2020-04-19T20:45:00.000-04:00",
+            "OriginRef": "MTA_550624",
+            "ProgressRate": "noProgress",
+            "ProgressStatus": "layover,prevTrip",
+            "PublishedLineName": "Q69",
+            "SituationRef": [],
+            "VehicleLocation": {
+                "Latitude": 40.766008,
+                "Longitude": -73.887509
+            },
+            "VehicleRef": "MTABC_4497"
+        },
+        "RecordedAtTime": "2020-04-19T20:09:09.000-04:00"
+    },
+    {
+        "MonitoredVehicleJourney": {
+            "Bearing": 51.806812,
+            "BlockRef": "MTABC_LGPCV-LG_A0-Sunday-10_5372647",
+            "DestinationName": "LI CITY QUEENS PLZ via DITMARS BL via 21 ST",
+            "DestinationRef": "MTA_982098",
+            "DirectionRef": "1",
+            "FramedVehicleJourneyRef": {
+                "DataFrameRef": "2020-04-19",
+                "DatedVehicleJourneyRef": "MTABC_27938321-LGPCV-LG_A0-Sunday-10"
+            },
+            "JourneyPatternRef": "MTA_Q690131",
+            "LineRef": "MTABC_Q69",
+            "Monitored": true,
+            "MonitoredCall": {
+                "Extensions": {
+                    "Distances": {
+                        "CallDistanceAlongRoute": 5113.84,
+                        "DistanceFromCall": 10008.56,
+                        "PresentableDistance": "6.2 miles away",
+                        "StopsFromCall": 54
+                    }
+                },
+                "StopPointName": "21 ST/31 AV",
+                "StopPointRef": "MTA_552954",
+                "VisitNumber": 1
+            },
+            "OnwardCalls": {},
+            "OperatorRef": "MTABC",
+            "OriginAimedDepartureTime": "2020-04-19T21:15:00.000-04:00",
+            "OriginRef": "MTA_550624",
+            "ProgressRate": "normalProgress",
+            "ProgressStatus": "prevTrip",
+            "PublishedLineName": "Q69",
+            "SituationRef": [],
+            "VehicleLocation": {
+                "Latitude": 40.770135,
+                "Longitude": -73.927647
+            },
+            "VehicleRef": "MTABC_3726"
+        },
+        "RecordedAtTime": "2020-04-19T20:09:26.000-04:00"
+    }
+]
+NO TIME, 6.2 miles away
+
+******************************************************************
+
+                      Welcome to TransitTime!                                             
+
+******************************************************************
+
+    
+Bus route: Q69
+Bus stop: 21 ST/31 AV
+
+Bus 1 is 1.3 miles away arrives in 7 minute(s) and 23 second(s)!
+Bus 2 is 3.3 miles away arrives in 55 minute(s) and 23 second(s)!
+

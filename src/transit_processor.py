@@ -13,7 +13,6 @@ def get_stop_code(bus_route, stop_name, api_key):
     stop_for_route_json = get_stop_for_route_json(bus_route, api_key)
     stops = stop_for_route_json["data"]["references"]["stops"]
     stop_code = list(filter(lambda stop: stop["name"] == stop_name, stops))[0]["code"]
-    #print(stop_code)
     return stop_code
 
 def get_stop_monitoring_url(bus_route, stop_code, api_key):
@@ -63,7 +62,6 @@ def format_time_and_distance(buses):
 def get_arrival_time_and_distance_away(bus_route, stop_code, api_key):
     stop_monitoring_json = get_stop_monitoring_url(bus_route, stop_code, api_key)
     buses_on_route = stop_monitoring_json["Siri"]["ServiceDelivery"]["StopMonitoringDelivery"][0]["MonitoredStopVisit"]
-    #print(json.dumps(buses_on_route, indent=4, sort_keys=True))
     return format_time_and_distance(buses_on_route)
 
 def print_bus_stop_data(bus_stop_arrival_data, bus_route, bus_stop):

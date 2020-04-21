@@ -56,8 +56,6 @@ def format_time_and_distance(buses):
             "distance": distance
         })
     return bus_stop_data
-        
-    
 
 def get_arrival_time_and_distance_away(bus_route, stop_code, api_key):
     stop_monitoring_json = get_stop_monitoring_url(bus_route, stop_code, api_key)

@@ -34,6 +34,9 @@ class BusRoute:
         bus_str = f'''Bus Route: {self.get_short_bus_route_name(self.name)}
         Monitored Bus Stop: {self.monitored_stop}
         '''
+        if len(self.bus_arrivals) == 0:
+            bus_str += f"No buses available at this time!"
+        
         for index, arrival in enumerate(self.bus_arrivals):
             bus_str += f'Bus {index + 1} is {arrival}\n'
 

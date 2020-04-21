@@ -65,6 +65,9 @@ def get_arrival_time_and_distance_away(bus_route, stop_code, api_key):
 def print_bus_stop_data(bus_stop_arrival_data, bus_route, bus_stop):
     bus_route_without_agency = bus_route[bus_route.find('_')+1:]
     bus_data = f"Bus route: {bus_route_without_agency}\nBus stop: {bus_stop}\n\n"
+    if len(bus_stop_arrival_data) == 0:
+        bus_data += f"No buses available at this time!"
+    
     for index, data in enumerate(bus_stop_arrival_data):
         bus_data += f"Bus {index + 1} is {data['distance']} and arrives in {data['minutes']} "
         bus_data += f"minute(s) and {data['seconds']} second(s)!\n"

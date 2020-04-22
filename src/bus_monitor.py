@@ -10,8 +10,16 @@ class Arrival:
         {self.time_from_stop!r}, {self.dist_from_stop!r})'''
     
     def __str__(self):
-        return f'''{self.dist_from_stop} and arrives in {self.time_from_stop[0]} minute(s)
-        and {self.time_from_stop[1]} second(s)!'''
+        return (
+            f'{self.dist_from_stop} and arrives in {self.get_minutes()} minute(s)'
+            f'and {self.get_seconds()} second(s)!'
+        )
+
+    def get_minutes(self):
+        return self.time_from_stop[0]
+
+    def get_seconds(self):
+        return self.time_from_stop[1]
 
 class BusRoute:
 
@@ -31,11 +39,12 @@ class BusRoute:
         {self.name!r}, {self.monitored_stop!r}, {self.bus_arrivals!r})'''
     
     def __str__(self):
-        bus_str = f'''Bus Route: {self.get_short_bus_route_name(self.name)}
-        Monitored Bus Stop: {self.monitored_stop}
-        '''
+        bus_str = (
+            f'Bus Route: {self.get_short_bus_route_name(self.name)}\n'
+            f'Monitored Bus Stop: {self.monitored_stop}\n\n'
+        )
         if len(self.bus_arrivals) == 0:
-            bus_str += f"No buses available at this time!"
+            bus_str += f'No buses available at this time!'
         
         for index, arrival in enumerate(self.bus_arrivals):
             bus_str += f'Bus {index + 1} is {arrival}\n'

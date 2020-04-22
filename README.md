@@ -1,2 +1,2 @@
 # TransitTime
-An Alexa skill that provides requested bus and train times to your closest stop.
+An Alexa skill that provides requested MTA bus arrival times.

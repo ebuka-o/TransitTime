@@ -11,8 +11,8 @@ class Arrival:
     
     def __str__(self):
         return (
-            f'{self.dist_from_stop} and arrives in {self.get_minutes()} minute(s)'
-            f'and {self.get_seconds()} second(s)!'
+            f'{self.dist_from_stop} and arrives in {self.get_minutes()} '
+            f'minutes(s) and {self.get_seconds()} second(s)!'
         )
 
     def get_minutes(self):

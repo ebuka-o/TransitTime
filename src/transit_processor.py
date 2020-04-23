@@ -42,8 +42,8 @@ def main(argv):
             api_key = arg
     
     data_manager = DataManager(api_key)
-    print_welcome_messaage()
     bus_route = data_manager.get_bus_route(bus_route_name, bus_stop_name)
+    print_welcome_messaage()
     print(bus_route)
 
 if __name__ == "__main__":

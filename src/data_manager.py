@@ -38,7 +38,8 @@ class DataManager:
     
     def __make_bus_route(self, route_name, stop_name, bus_route_data):
         datetime_format = "%Y-%m-%d %H:%M:%S"
-        curr_datetime = DataFormatter.format_datetime(datetime.now(timezone('US/Eastern')), datetime_format)
+        curr_datetime = DataFormatter.format_datetime(datetime.now(timezone('US/Eastern')), 
+        datetime_format)
         # populate bus route
         bus_route = BusRoute(route_name, stop_name)
         for bus_on_route in bus_route_data:

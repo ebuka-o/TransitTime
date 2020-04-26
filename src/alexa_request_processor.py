@@ -3,9 +3,10 @@ import logging
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.utils import is_request_type, is_intent_name
 from ask_sdk_core.handler_input import HandlerInput
-
 from ask_sdk_model.ui import SimpleCard
 from ask_sdk_model import Response
+
+from data_manager import DataManager
 
 sb = SkillBuilder()
 
@@ -32,6 +33,16 @@ def hello_world_intent_handler(handler_input):
 
     return handler_input.response_builder.speak(speech_text).set_card(
         SimpleCard("Hello World", speech_text)).set_should_end_session(
+        True).response
+
+@sb.request_handler(can_handle_func=is_intent_name("GetBusStopTimeIntent"))
+def get_bus_stop_time_intent_handler(handler_input):
+    """Handler for Get bus stop time Intent."""
+    # type: (HandlerInput) -> Response
+    speech_text = "Here are some bus stops!"
+
+    return handler_input.response_builder.speak(speech_text).set_card(
+        SimpleCard("Bus Stop Time", speech_text)).set_should_end_session(
         True).response
 
 

@@ -7,6 +7,7 @@ from ask_sdk_model.ui import SimpleCard
 from ask_sdk_model import Response
 
 from data_manager import DataManager
+from address_parser import AddressParser
 
 sb = SkillBuilder()
 

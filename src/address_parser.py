@@ -18,6 +18,7 @@ class AddressParser:
 
     @classmethod
     def parse_address_unit(cls, address_unit):
+        address_unit = address_unit.replace(' ', '').upper()
         return cls.__parse_address_unit(address_unit)
 
     @classmethod
@@ -71,12 +72,3 @@ class AddressParser:
         'WAY' : 'WY',
         'WEST' : 'W'
     }
-
-def main():
-    address_one = '24th street and queens plaza south'
-
-    data = AddressParser.parse(address_one)
-    print(data)
-
-if __name__ == '__main__':
-    main()

@@ -1,4 +1,3 @@
-
 class Arrival:
 
     def __init__(self, time_from_stop, dist_from_stop):
@@ -12,7 +11,7 @@ class Arrival:
     def __str__(self):
         return (
             f'{self.dist_from_stop} and arrives in {self.get_minutes()} '
-            f'minutes(s) and {self.get_seconds()} second(s)!'
+            f'minutes and {self.get_seconds()} seconds'
         )
 
     def get_minutes(self):
@@ -40,13 +39,22 @@ class BusRoute:
     
     def __str__(self):
         bus_str = (
-            f'Bus Route: {self.get_short_bus_route_name(self.name)}\n'
-            f'Monitored Bus Stop: {self.monitored_stop}\n\n'
+            f'For the {self.get_short_bus_route_name(self.name)} bus '
+            f'at the {self.monitored_stop} stop, '
         )
         if len(self.bus_arrivals) == 0:
-            bus_str += f'No buses available at this time!'
-        
+            bus_str += f'there are no buses available at this time!'
         for index, arrival in enumerate(self.bus_arrivals):
-            bus_str += f'Bus {index + 1} is {arrival}\n'
+            bus_str += f'{self.ordinal(index + 1)} bus is {arrival}, '
 
-        return bus_str
+        # excluding trailing characters
+        return bus_str[:-2]
+
+    def ordinal(self, num):
+        return BusRoute.ordinal_dict.get(num, "next")
+        
+    ordinal_dict = {
+        1 : "first",
+        2 : "second",
+        3 : "third"
+    }

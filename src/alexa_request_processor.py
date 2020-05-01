@@ -7,7 +7,6 @@ from ask_sdk_model.ui import SimpleCard
 from ask_sdk_model import Response
 
 from data_manager import DataManager
-from address_parser import AddressParser
 
 sb = SkillBuilder()
 
@@ -19,28 +18,28 @@ logger.setLevel(logging.INFO)
 def launch_request_handler(handler_input):
     """Handler for Skill Launch."""
     # type: (HandlerInput) -> Response
-    speech_text = "Welcome to the Alexa Skills Kit, you can say hello!"
+    speech_text = "Welcome to the Transit Time skill, ask when the next bus is coming!"
 
     return handler_input.response_builder.speak(speech_text).set_card(
-        SimpleCard("Hello World", speech_text)).set_should_end_session(
+        SimpleCard("Transit Time", speech_text)).set_should_end_session(
         False).response
-
-
-@sb.request_handler(can_handle_func=is_intent_name("HelloWorldIntent"))
-def hello_world_intent_handler(handler_input):
-    """Handler for Hello World Intent."""
-    # type: (HandlerInput) -> Response
-    speech_text = "Hello Python World from Decorators!"
-
-    return handler_input.response_builder.speak(speech_text).set_card(
-        SimpleCard("Hello World", speech_text)).set_should_end_session(
-        True).response
 
 @sb.request_handler(can_handle_func=is_intent_name("GetBusStopTimeIntent"))
 def get_bus_stop_time_intent_handler(handler_input):
     """Handler for Get bus stop time Intent."""
     # type: (HandlerInput) -> Response
-    speech_text = "Here are some bus stops!"
+    slots = handler_input.request_envelope.request.intent.slots
+
+    # setting formatted bus name
+    bus_slot = slots["busName"]
+    bus_name = bus_slot.value.replace(" ", "").upper()
+    
+    bus_name = f"MTABC_{bus_name}"
+    stop_name = slots["stopName"].value
+
+    logger.info(f"INFO: Bus name: {bus_name}, Stop name: {stop_name}")
+    bus_route = DataManager.get_bus_route(bus_name, stop_name, True)
+    speech_text = str(bus_route)
 
     return handler_input.response_builder.speak(speech_text).set_card(
         SimpleCard("Bus Stop Time", speech_text)).set_should_end_session(
@@ -51,11 +50,11 @@ def get_bus_stop_time_intent_handler(handler_input):
 def help_intent_handler(handler_input):
     """Handler for Help Intent."""
     # type: (HandlerInput) -> Response
-    speech_text = "You can say hello to me!"
+    speech_text = "You can ask when the next bus is coming!"
 
     return handler_input.response_builder.speak(speech_text).ask(
         speech_text).set_card(SimpleCard(
-            "Hello World", speech_text)).response
+            "Transit Time", speech_text)).response
 
 
 @sb.request_handler(
@@ -65,10 +64,10 @@ def help_intent_handler(handler_input):
 def cancel_and_stop_intent_handler(handler_input):
     """Single handler for Cancel and Stop Intent."""
     # type: (HandlerInput) -> Response
-    speech_text = "Goodbye!"
+    speech_text = "Stopping."
 
     return handler_input.response_builder.speak(speech_text).set_card(
-        SimpleCard("Hello World", speech_text)).response
+        SimpleCard("Transit Time", speech_text)).response
 
 
 @sb.request_handler(can_handle_func=is_intent_name("AMAZON.FallbackIntent"))
@@ -79,9 +78,9 @@ def fallback_handler(handler_input):
     """
     # type: (HandlerInput) -> Response
     speech = (
-        "The Hello World skill can't help you with that.  "
-        "You can say hello!!")
-    reprompt = "You can say hello!!"
+        "The Transit Time skill can't help you with that.  "
+        "You can ask when the next bus is coming!")
+    reprompt = "You can ask when the next bus is arriving!"
     handler_input.response_builder.speak(speech).ask(reprompt)
     return handler_input.response_builder.response
 

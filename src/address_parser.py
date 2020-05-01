@@ -1,4 +1,8 @@
 import re
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 class AddressParser:
     
@@ -7,6 +11,7 @@ class AddressParser:
         address = address.upper()
         address_units = address.split(' AND ')
         if len(address_units) != 2:
+            logger.error(f'Invalid address (cannot split into 2 units): {address}')
             return None
 
         address_unit_one = cls.__parse_address_unit(address_units[0])

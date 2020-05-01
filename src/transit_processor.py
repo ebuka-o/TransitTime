@@ -22,11 +22,11 @@ def main(argv):
     Given a bus route and stop name, returns the time it will take a bus to arrive
     at the stop and how far the bus is from the stop in miles.
 
-    Usage: transit_processor.py -r <bus route> -s <bus stop> -k <access key>
+    Usage: transit_processor.py -r <bus route> -s <bus stop>
     """
     try:
         # args can be ignored from getopts
-        opts, _ = getopt.getopt(argv,"hr:s:k:",["help","route=","stop=","accesskey="])
+        opts, _ = getopt.getopt(argv,"hr:s:",["help","route=","stop="])
     except getopt.GetoptError:
         print(help_text)
         sys.exit(2)
@@ -38,11 +38,8 @@ def main(argv):
             bus_route_name = arg
         elif opt in ('-s', '--stop'):
             bus_stop_name = arg
-        elif opt in ('-k', '--accesskey'):
-            api_key = arg
-    
-    data_manager = DataManager(api_key)
-    bus_route = data_manager.get_bus_route(bus_route_name, bus_stop_name)
+        
+    bus_route = DataManager.get_bus_route(bus_route_name, bus_stop_name, False)
     print_welcome_messaage()
     print(bus_route)
 
